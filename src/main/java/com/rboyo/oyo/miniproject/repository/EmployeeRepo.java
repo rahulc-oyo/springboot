@@ -1,6 +1,6 @@
 package com.rboyo.oyo.miniproject.repository;
 
-import com.rboyo.oyo.miniproject.model.Employee;
+import com.rboyo.oyo.miniproject.model.entity.Employee;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

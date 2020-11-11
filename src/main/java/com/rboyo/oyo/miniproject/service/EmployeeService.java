@@ -1,11 +1,13 @@
 package com.rboyo.oyo.miniproject.service;
 
-import com.rboyo.oyo.miniproject.model.Employee;
+import com.rboyo.oyo.miniproject.exception.EmployeeNotFound;
+import com.rboyo.oyo.miniproject.model.entity.Employee;
 import com.rboyo.oyo.miniproject.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class EmployeeService {
@@ -30,6 +32,11 @@ public class EmployeeService {
 //                .filter(e -> e.getEmployeeId() == employeeId)
 //                .findFirst()
 //                .get();
+        Optional<Employee> optionalEmployee = employeeRepo.findById(employeeId);
+
+        if(!optionalEmployee.isPresent()){
+            throw new EmployeeNotFound("Employee Record is not available");
+        }
         return employeeRepo.findById(employeeId).get();
     }
 
