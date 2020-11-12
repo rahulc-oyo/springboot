@@ -1,16 +1,40 @@
 package com.rboyo.oyo.miniproject.model.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="department")
 public class Department {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "department_seq")
+    @Column(name="department_id")
     private int departmentId;
+
+    @Column(name="name")
     private String departmentName;
+
+    @Column(name="contact_number")
     private String departmentContactNumber;
+
+    @Column(name="email")
     private String departmentEmail;
+
 //    private String departmentManager;
+
+    @Column(name="address")
     private String departmentAddress;
+
+    @Column(name="pincode")
     private String departmentPINcode;
+
+    @Column(name="city")
     private String departmentCity;
+
+    @Column(name="state")
     private String departmentState;
+
+    @Column(name="country")
     private String departmentCountry;
     //    private Boolean departmentStatus;
 

@@ -8,7 +8,7 @@ public class Employee {
 
 //    @JsonProperty
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
     @Column(name = "employee_id")
     private int employeeId;
 
