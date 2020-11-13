@@ -1,5 +1,6 @@
 package com.rboyo.oyo.miniproject.repository;
 
+import com.rboyo.oyo.miniproject.model.entity.Department;
 import com.rboyo.oyo.miniproject.model.entity.Employee;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -7,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface EmployeeRepo extends CrudRepository<Employee, Integer> {
+public interface DepartmentRepo extends CrudRepository<Department, Integer> {
 
-    List<Employee> findByDepartmentDepartmentId(int departmentId);
+    List<Department> findByCompanyCompanyId(int companyId);
 
     @Override
-    List<Employee> findAll();
+    List<Department> findAll();
 }

@@ -1,15 +1,17 @@
 package com.rboyo.oyo.miniproject.service;
 
 import com.rboyo.oyo.miniproject.exception.EmployeeNotFound;
+import com.rboyo.oyo.miniproject.model.entity.Department;
 import com.rboyo.oyo.miniproject.model.entity.Employee;
 import com.rboyo.oyo.miniproject.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class EmployeeService {
 
     @Autowired
@@ -97,5 +99,13 @@ public class EmployeeService {
 //                        employeeList.remove(e);
 //                    }});
         employeeRepo.deleteById(employeeId);
+    }
+
+    public List<Employee> getEmployeesByDepartment(int departmentId){
+        List<Employee> employeeList = new ArrayList<>();
+
+        employeeRepo.findByDepartmentDepartmentId(departmentId).forEach(employeeList::add);
+
+        return employeeList;
     }
 }

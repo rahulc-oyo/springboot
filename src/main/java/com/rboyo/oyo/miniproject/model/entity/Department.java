@@ -1,7 +1,31 @@
 package com.rboyo.oyo.miniproject.model.entity;
 
+<<<<<<< Updated upstream
 public class Department {
 
+=======
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
+
+@Entity
+@Table(name="department")
+@Getter
+@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Department implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="department_id")
+>>>>>>> Stashed changes
     private int departmentId;
     private String departmentName;
     private String departmentContactNumber;
@@ -14,76 +38,13 @@ public class Department {
     private String departmentCountry;
     //    private Boolean departmentStatus;
 
-    public int getDepartmentId() {
-        return departmentId;
-    }
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employeeList;
 
-    public void setDepartmentId(int departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getDepartmentName() {
-        return departmentName;
-    }
-
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
-    }
-
-    public String getDepartmentContactNumber() {
-        return departmentContactNumber;
-    }
-
-    public void setDepartmentContactNumber(String departmentContactNumber) {
-        this.departmentContactNumber = departmentContactNumber;
-    }
-
-    public String getDepartmentEmail() {
-        return departmentEmail;
-    }
-
-    public void setDepartmentEmail(String departmentEmail) {
-        this.departmentEmail = departmentEmail;
-    }
-
-    public String getDepartmentAddress() {
-        return departmentAddress;
-    }
-
-    public void setDepartmentAddress(String departmentAddress) {
-        this.departmentAddress = departmentAddress;
-    }
-
-    public String getDepartmentPINcode() {
-        return departmentPINcode;
-    }
-
-    public void setDepartmentPINcode(String departmentPINcode) {
-        this.departmentPINcode = departmentPINcode;
-    }
-
-    public String getDepartmentCity() {
-        return departmentCity;
-    }
-
-    public void setDepartmentCity(String departmentCity) {
-        this.departmentCity = departmentCity;
-    }
-
-    public String getDepartmentState() {
-        return departmentState;
-    }
-
-    public void setDepartmentState(String departmentState) {
-        this.departmentState = departmentState;
-    }
-
-    public String getDepartmentCountry() {
-        return departmentCountry;
-    }
-
-    public void setDepartmentCountry(String departmentCountry) {
-        this.departmentCountry = departmentCountry;
-    }
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @Fetch(FetchMode.JOIN)
+    @JsonIgnore
+    @JoinColumn(name="company_id", nullable = false)
+    private Company company;
 
 }
