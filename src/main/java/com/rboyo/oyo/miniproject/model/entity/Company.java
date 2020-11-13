@@ -1,12 +1,5 @@
 package com.rboyo.oyo.miniproject.model.entity;
 
-<<<<<<< Updated upstream
-public class Company {
-
-    private int companyId;
-    private String companyName;
-    private String companyContactNumber;
-=======
 import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -36,17 +29,7 @@ public class Company implements Serializable {
     private String companyContactNumber;
 
     @Column(name = "email")
->>>>>>> Stashed changes
     private String companyEmail;
-    //    private String companyCEO;
-<<<<<<< Updated upstream
-    private String companyAddress;
-    private String companyPINcode;
-    private String companyCity;
-    private String companyState;
-    private String companyCountry;
-    //    private Boolean companyStatus;
-=======
 
     @Column(name = "address")
     private String companyAddress;
@@ -69,5 +52,4 @@ public class Company implements Serializable {
     @Fetch(FetchMode.JOIN)
     private List<Department> departmentList;
 
->>>>>>> Stashed changes
 }

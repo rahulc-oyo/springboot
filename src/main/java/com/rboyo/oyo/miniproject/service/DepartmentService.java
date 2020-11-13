@@ -2,7 +2,6 @@ package com.rboyo.oyo.miniproject.service;
 
 import com.rboyo.oyo.miniproject.exception.EmployeeNotFound;
 import com.rboyo.oyo.miniproject.model.entity.Department;
-import com.rboyo.oyo.miniproject.model.entity.Employee;
 import com.rboyo.oyo.miniproject.repository.DepartmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -19,11 +19,7 @@ public class Employee implements Serializable{
 
 //    @JsonProperty
     @Id
-<<<<<<< Updated upstream
-    @GeneratedValue
-=======
     @GeneratedValue(strategy = GenerationType.IDENTITY)
->>>>>>> Stashed changes
     @Column(name = "employee_id")
     private int employeeId;
 
