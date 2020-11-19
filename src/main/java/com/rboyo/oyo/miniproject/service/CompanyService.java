@@ -33,6 +33,7 @@ public class CompanyService {
     }
 
     public Company updateCompany(int companyId, Company company){
+
         Company update = companyRepo.findById(companyId).get();
 
         if (company.getCompanyName() != null) { update.setCompanyName(company.getCompanyName()); }
